@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM Mini-Projet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>QCM - Mini-Projet</h1>
+        <div id="score">Score : 0</div>
+    </header>
+    
+    <form id="config-form" class="config-form">
+        <h2>Configurer votre QCM</h2>
+        <label for="num-questions">Nombre de questions :</label>
+        <input type="number" id="num-questions" min="1" max="50" value="5">
+        
+        <label for="category">Catégorie :</label>
+        <select id="category">
+            <option value="9">Culture Générale</option>
+            <option value="17">Science</option>
+            <option value="18">Informatique</option>
+            <option value="23">Histoire</option>
+        </select>
+        
+        <label for="difficulty">Difficulté :</label>
+        <select id="difficulty">
+            <option value="easy">Facile</option>
+            <option value="medium">Moyenne</option>
+            <option value="hard">Difficile</option>
+        </select>
+        
+        <label for="type">Type de question :</label>
+        <select id="type">
+            <option value="multiple">Choix multiples</option>
+            <option value="boolean">Vrai/Faux</option>
+        </select>
+        
+        <button type="submit">Générer le QCM</button>
+    </form>
+    
+    <main id="quiz-container">
+        <!-- Les questions générées par l'API apparaîtront ici -->
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
