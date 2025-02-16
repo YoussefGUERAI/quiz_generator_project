@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM en JavaScript</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #score-container {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        #quiz-container {
+            max-width: 600px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div id="score-container">
+        Score : <span id="score">0</span>
+    </div>
+    
+    <div id="quiz-container">
+        <div class="question">
+            <p>Quelle est la capitale de la France ?</p>
+            <label><input type="radio" name="q1" value="Londres"> Londres</label>
+            <label><input type="radio" name="q1" value="Paris"> Paris</label>
+            <label><input type="radio" name="q1" value="Rome"> Rome</label>
+        </div>
+        
+        <div class="question">
+            <p>Quel est le résultat de 5 + 3 ?</p>
+            <label><input type="radio" name="q2" value="7"> 7</label>
+            <label><input type="radio" name="q2" value="8"> 8</label>
+            <label><input type="radio" name="q2" value="9"> 9</label>
+        </div>
+        
+        <div class="question">
+            <p>Quel est l'élément chimique avec le symbole 'O' ?</p>
+            <label><input type="radio" name="q3" value="Or"> Or</label>
+            <label><input type="radio" name="q3" value="Oxygène"> Oxygène</label>
+            <label><input type="radio" name="q3" value="Osmium"> Osmium</label>
+        </div>
+        
+        <div class="question">
+            <p>Combien y a-t-il de continents sur Terre ?</p>
+            <label><input type="radio" name="q4" value="5"> 5</label>
+            <label><input type="radio" name="q4" value="6"> 6</label>
+            <label><input type="radio" name="q4" value="7"> 7</label>
+        </div>
+        
+        <button id="submit">Soumettre</button>
+    </div>
+    
+    <script>
+        document.getElementById("submit").addEventListener("click", function() {
+            let score = 0;
+            if (document.querySelector('input[name="q1"]:checked')?.value === "Paris") {
+                score++;
+            }
+            if (document.querySelector('input[name="q2"]:checked')?.value === "8") {
+                score++;
+            }
+            if (document.querySelector('input[name="q3"]:checked')?.value === "Oxygène") {
+                score++;
+            }
+            if (document.querySelector('input[name="q4"]:checked')?.value === "7") {
+                score++;
+            }
+            document.getElementById("score").textContent = score;
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+</body>
+</html>
